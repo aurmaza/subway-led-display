@@ -1,0 +1,7 @@
+# Ignore Python virtual environments
+lambda/venv/
+raspberry_pi/venv/
+__pycache__/
+*.pyc
+*.log
+*.zip  # if you're zipping Lambda packages
