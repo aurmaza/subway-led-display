@@ -3,7 +3,7 @@ name: Deploy Lambda on Commit
 on:
   push:
     branches:
-      - master   # Only run on master branch
+      - main   # Only run on master branch
 
 jobs:
   deploy:
