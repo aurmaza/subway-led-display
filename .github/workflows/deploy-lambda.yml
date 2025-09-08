@@ -3,7 +3,7 @@ name: Deploy Lambda on Commit
 on:
   push:
     branches:
-      - main   # Only run on master branch
+      - main   # Only run on main branch
 
 jobs:
   deploy:
@@ -17,16 +17,17 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'   # match your Lambda runtime
+          # Match your Lambda runtime in AWS (e.g., 3.11). AWS does not yet support 3.13.
+          python-version: '3.13'
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt -t backend/get-train-data-lambda/src/
+          pip install -r backend/get-train-data-lambda/src/requirements.txt -t backend/get-train-data-lambda/src/
 
       - name: Zip Lambda code
         run: |
-          cd backend/get-train-data-lambda/src/
-          zip -r ../function.zip .
+          cd backend/get-train-data-lambda/src
+          zip -r ../../function.zip .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -39,5 +40,4 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name train-times-api \
-            --zip-file fileb://function.zip
-
+            --zip-file fileb://backend/function.zip
