@@ -1,7 +1,12 @@
-# Ignore Python virtual environments
-lambda/venv/
-raspberry_pi/venv/
-__pycache__/
-*.pyc
+backend/backendEnv
+.env
+.pio
+display/microcontroller/LED Matrix ESP32/.vscode
+display/microcontroller/LED Matrix ESP32/include
+display/microcontroller/LED Matrix ESP32/lib
+display/microcontroller/LED Matrix ESP32/test
+subway-led-display/backend/*
+# Ignore Python virtual environment
 *.log
 *.zip  # if you're zipping Lambda packages
+.env
