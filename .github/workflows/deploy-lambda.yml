@@ -40,3 +40,4 @@ jobs:
           aws lambda update-function-code \
             --function-name train-times-api \
             --zip-file fileb://function.zip
+
