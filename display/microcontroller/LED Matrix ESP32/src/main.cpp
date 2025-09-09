@@ -1,13 +1,17 @@
 #include <WiFi.h>
 #include <Arduino.h>
 #include <HTTPClient.h>
+#include <iostream>
 
-const char *ssid = "<SSID>";
-const char *pass = "<PASSWORD>";
-const char *url = "http://192.168.1.132:8000/test";
-
+#include <cstdlib>
+#include "dotenv.h"
+ const char *url = "http://192.168.1.132:8000/test";
 void setup()
 {
+  const char *ssid = std::getenv("SSID");
+  const char *pass = std::getenv("PASSWORD");
+ 
+
   Serial.begin(115200);
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED)
