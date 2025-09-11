@@ -17,6 +17,7 @@ def get_arrival_by_id(lines: list, stop_id: str):
     else:
         return {"error": "Invalid stop_id format. Must end with 'N' or 'S'."}
     
+    
     print(feed)
     for trip in feed:
         # trip.trip_id
