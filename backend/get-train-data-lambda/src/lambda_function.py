@@ -5,7 +5,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from nyct_gtfs import NYCTFeed, Trip, StopTimeUpdate
 
-
+# Lambda function to get train arrival data
 def get_arrival_by_id(lines: list, stop_id: str):
     feed: list[Trip] = NYCTFeed("N").filter_trips(line_id=lines)
     stops = {}
